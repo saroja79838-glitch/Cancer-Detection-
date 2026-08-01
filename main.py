@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import joblib
 
 # ==============================
 # Step 1: Load Breast Cancer Dataset
@@ -122,11 +123,13 @@ new_patient = pd.DataFrame([[
 
 prediction = model.predict(new_patient)
 
+joblib.dump(model, "breast_cancer_model.pkl")
+print("\nModel Saved Successfully!")
+
+# Predict New Patient
+prediction = model.predict(new_patient)
+
 if prediction[0] == 0:
     print("\nPrediction: Benign (No Cancer)")
 else:
     print("\nPrediction: Malignant (Cancer Detected)")
-    import joblib
-
-joblib.dump(model, "breast_cancer_model.pkl")
-print("Model Saved Successfully!")
