@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 DATA_PATH = "Cancer Detection dataset.csv"
 df = pd.read_csv(DATA_PATH)
 
-print("First 5 Records:")
+print("First 10 Records:")
 print(df.head())
 
 # ==============================
@@ -95,3 +95,38 @@ print(confusion_matrix(y_test, y_pred))
 
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
+
+# ==============================
+# Step 9: Predict New Patient
+# ==============================
+
+print("\nEnter Patient Details")
+
+radius_mean = float(input("Radius Mean: "))
+texture_mean = float(input("Texture Mean: "))
+perimeter_mean = float(input("Perimeter Mean: "))
+area_mean = float(input("Area Mean: "))
+smoothness_mean = float(input("Smoothness Mean: "))
+compactness_mean = float(input("Compactness Mean: "))
+concavity_mean = float(input("Concavity Mean: "))
+
+new_patient = pd.DataFrame([[
+    radius_mean,
+    texture_mean,
+    perimeter_mean,
+    area_mean,
+    smoothness_mean,
+    compactness_mean,
+    concavity_mean
+]], columns=features)
+
+prediction = model.predict(new_patient)
+
+if prediction[0] == 0:
+    print("\nPrediction: Benign (No Cancer)")
+else:
+    print("\nPrediction: Malignant (Cancer Detected)")
+    import joblib
+
+joblib.dump(model, "breast_cancer_model.pkl")
+print("Model Saved Successfully!")
