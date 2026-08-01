@@ -16,9 +16,14 @@ This project predicts whether a breast tumor is *Benign (Non-Cancerous)* or *Mal
 - Classification Report
 
 ## Technologies Used
-- Python
-- Pandas
-- Scikit-learn
+- pandas
+- scikit-learn
+- joblib
+- streamlit
+
+Install using:
+
+pip install -r requirements.txt
 
 ## Dataset Information
 - Dataset Name: Breast Cancer Wisconsin Diagnostic Dataset
@@ -79,13 +84,20 @@ pip install pandas scikit-learn
 
 ## How to Run
 
-1. Download the project.
+1. Download or clone the project.
 2. Place the dataset (Cancer Detection dataset.csv) in the project folder.
-3. Open the project in VS Code.
-4. Run:
+3. Install the required libraries:
 
-bash
-python breast_cancer_detection.py
+pip install -r requirements.txt
+
+4. Train the model:
+
+python main.py
+
+5. Run the Streamlit application:
+
+streamlit run app.py
+
 
 ## Sample Output
 
