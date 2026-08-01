@@ -126,9 +126,6 @@ prediction = model.predict(new_patient)
 joblib.dump(model, "breast_cancer_model.pkl")
 print("\nModel Saved Successfully!")
 
-# Predict New Patient
-prediction = model.predict(new_patient)
-
 if prediction[0] == 0:
     print("\nPrediction: Benign (No Cancer)")
 else:
