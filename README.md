@@ -101,6 +101,13 @@ streamlit run app.py
 
 ## Sample Output
 
+First 10 Records:
+...
+
+Missing Values:
+...
+
+Mean Absolute Error:0.04 
 
 Accuracy: 0.97
 
@@ -118,6 +125,20 @@ Malignant       0.95       0.98      0.96       42
 accuracy                             0.97      114
 macro avg        0.97       0.97      0.97      114
 weighted avg     0.97       0.97      0.97      114
+
+Enter Patient Details
+
+Radius Mean: 17.99
+Texture Mean: 10.38
+Perimeter Mean: 122.8
+Area Mean: 1001
+Smoothness Mean: 0.11844
+Compactness Mean: 0.2776
+Concavity Mean: 0.3001
+
+Model Saved Successfully!
+
+Prediction: Malignant (Cancer Detected)
 
 ## Future Improvements
 - Random Forest Classifier
